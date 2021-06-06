@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { FaSignInAlt, FaSignOutAlt } from 'react-icons/fa';
 import styles from '@/styles/Header.module.css';
 export default function Header() {
   return (
@@ -13,6 +14,13 @@ export default function Header() {
           <li>
             <Link href='/events'>
               <a>Events</a>
+            </Link>
+          </li>
+          <li>
+            <Link href='/account/login'>
+              <a className='btn-secondary btn-icon'>
+                <FaSignInAlt></FaSignInAlt>Login
+              </a>
             </Link>
           </li>
         </ul>
