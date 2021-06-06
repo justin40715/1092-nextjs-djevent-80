@@ -1,4 +1,4 @@
-import Layout from '@/components/Layout';
-export default function EventsPage() {
-  return <Layout title='My event page'>My Events Page</Layout>;
-}
+const { events } = require('./data.json');
+export default (req, res) => {
+  res.status(200).json({ events });
+};
