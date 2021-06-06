@@ -1,12 +1,14 @@
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import { FaUser } from 'react-icons/fa';
-import Layout from '@/components/Layout';
-import styles from '@/styles/AuthForm.module.css';
-import AuthContext from '@/context/AuthContext';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { useState, useEffect, useContext } from "react";
+import Link from "next/link";
+import { FaUser } from "react-icons/fa";
+import Layout from "@/components/Layout";
+import styles from "@/styles/AuthForm.module.css";
+import AuthContext from "@/context/AuthContext";
 export default function LoginPage() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const { login, error } = useContext(AuthContext);
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -14,7 +16,7 @@ export default function LoginPage() {
     // console.log('email password', email, password);
   };
   return (
-    <Layout title='User Login'>
+    <Layout title="User Login">
       <div className={styles.auth}>
         <h1>
           <FaUser /> Log In
@@ -22,31 +24,30 @@ export default function LoginPage() {
         <ToastContainer />
         <form onSubmit={handleSubmit}>
           <div>
-            <label htmlFor='email'>Email Address</label>
+            <label htmlFor="email">Email Address</label>
             <input
-              type='email'
-              id='email'
+              type="email"
+              id="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
           </div>
           <div>
-            <label htmlFor='email'>Password</label>
+            <label htmlFor="email">Password</label>
             <input
-              type='password'
-              id='password'
+              type="password"
+              id="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
-          <input type='submit' value='Login' className='btn' />
+          <input type="submit" value="Login" className="btn" />
         </form>
         <p>
           Don't have an account?
-          <Link href='/account/register'>Register</Link>
+          <Link href="/account/register">Register</Link>
         </p>
       </div>
     </Layout>
   );
 }
-
